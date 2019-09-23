@@ -10,8 +10,8 @@ export const removeTodo = (id) => ({
   id
 })
 
-export const COMPLETE_TODO = Symbol('@@TODO/COMPLETE')
-export const completeTodo = (id) => ({
-  type: COMPLETE_TODO,
+export const TOGGLE_TODO = Symbol('@@TODO/TOGGLE')
+export const toggleTodo = (id) => ({
+  type: TOGGLE_TODO,
   id
 })
