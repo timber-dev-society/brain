@@ -1,7 +1,8 @@
 const initialState = {}
 
-const AppReducer = (store = initialState, action) => {
+const AppReducer = (state = initialState, action) => {
 
+  return state
 }
 
-export default AppReducer;
+export default AppReducer

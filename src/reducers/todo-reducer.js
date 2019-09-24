@@ -40,7 +40,7 @@ const TodoReducer = (state = [], action) => {
     case ADD_TODO:
       return [
         Todo(undefined, action),
-        ...store
+        ...state
       ]
     case TOGGLE_TODO:
       return state.map(todo => Todo(todo, action))
@@ -51,4 +51,4 @@ const TodoReducer = (state = [], action) => {
   }
 }
 
-export default TodoReducer;
+export default TodoReducer
