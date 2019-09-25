@@ -7,7 +7,9 @@ import Todo from './../components/todo/show'
 const TodoPage = ({ todos }) => (
   <>
     <AddTodo />
-    { todos.map(todo => <Todo key={todo.id} {...todo} />) }
+    <ul style={{ listStyle: 'none' }}>
+      { todos.map(todo => <li key={todo.id}><Todo {...todo} /></li>) }
+    </ul>
   </>
 )
 

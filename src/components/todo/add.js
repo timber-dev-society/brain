@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Input, Button } from 'semantic-ui-react'
+
 
 import { addTodo } from './../../actions/todo-action'
 
@@ -21,15 +23,19 @@ class AddTodo extends Component {
 
   render() {
     return (
-      <>
-        <input
-          onChange={e => this.updateInput(e.target.value)}
-          value={this.state.input}
-        />
-        <button className="add-todo" onClick={this.handleAddTodo}>
-          Add Todo
-        </button>
-      </>
+      <div style={{ margin: '5px auto', width: '80%' }}>
+        <div className="ui input" style={{ width: '80%' }}>
+          <input
+            style={{ borderRadius: '5px 0 0 5px' }}
+            onChange={e => this.updateInput(e.target.value)}
+            placeholder='What next'
+            value={this.state.input}
+          />
+        </div>
+        <Button style={{ width: '19.5%', margin: 0, borderRadius: '0 5px 5px 0', fontSize: '1.3rem' }} className="add-todo ui label label" onClick={this.handleAddTodo}>
+          {'//'} @Todo
+        </Button>
+      </div>
     )
   }
 }

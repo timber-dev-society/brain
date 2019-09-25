@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 
 import store from './store'
-import './assets/css/index.css'
+import './assets/css/reset.css'
 import App from './containers/app'
 
 import * as sw from './service-worker'

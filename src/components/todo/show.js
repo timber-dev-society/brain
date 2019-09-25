@@ -1,8 +1,9 @@
 import React from 'react'
+import Checkbox from './../checkbox'
 
 const Todo = ({ id, text }) => (
   <div>
-    <input type="checkbox" name={'todo-'+id} />
+    <Checkbox />
     <label for={'todo-'+id}>{text}</label>
   </div>
 )
