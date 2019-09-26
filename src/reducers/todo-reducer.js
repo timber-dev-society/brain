@@ -1,7 +1,8 @@
 import {
   ADD_TODO,
   REMOVE_TODO,
-  TOGGLE_TODO
+  TOGGLE_TODO,
+  SWIPE_TODO_ORDER
 } from './../actions/todo-action'
 
 let id = 1
@@ -32,6 +33,11 @@ const Todo = (state = initialState, action) => {
     case REMOVE_TODO:
       if (state.id !== action.id) { return true }
       return false
+    case SWIPE_TODO_ORDER:
+      return {
+        ...state,
+        order: action.todo.order,
+      }
     default:
       return state
   }
@@ -49,6 +55,12 @@ const TodoReducer = (state = [], action) => {
       return state.map(todo => Todo(todo, action))
     case REMOVE_TODO:
       return state.filter(todo => Todo(todo, action))
+    case SWIPE_TODO_ORDER:
+      return state.map(todo => {
+        if (todo.id === action.todoFrom.id) { return Todo(todo, { action: SWIPE_TODO_ORDER, todo: action.todoTo })}
+        if (todo.id === action.todoTo.id) { return Todo(todo, { action: SWIPE_TODO_ORDER, todo: action.todoFrom })}
+        return todo
+      })
     default:
       return state
   }

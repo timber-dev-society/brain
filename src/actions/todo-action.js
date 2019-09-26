@@ -15,3 +15,10 @@ export const toggleTodo = (id) => ({
   type: TOGGLE_TODO,
   id
 })
+
+export const SWIPE_TODO_ORDER = '@@TODO/SWIPE_ORDER'
+export const swipeTodoOrder = (orderFrom, orderTo) => ({
+  type: SWIPE_TODO_ORDER,
+  orderFrom,
+  orderTo
+})

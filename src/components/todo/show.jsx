@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import Checkbox from './../checkbox'
 import { toggleTodo } from './../../actions/todo-action'
+// import { ReactComponent as DragImg } from "./../../assets/img/drag.svg";
 
 function renderMarkDown(text) {
   return { __html: marked(text) }

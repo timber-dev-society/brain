@@ -1,7 +1,12 @@
+
+.todo .drag {
+  height: 2rem;
+}
+.todo.complete .drag,
 .todo.complete {
   color: #9c9c9c;
 }
-
+.todo.uncomplete .drag,
 .todo.uncomplete {
   color: #fff;
 }
@@ -10,17 +15,16 @@
   width: 100%;
   padding: 12px 0;
 }
-
 .ui.input.add-todo>input,
 .ui.input.add-todo>input:focus {
   color: #fff;
 }
 
-code {
+
+.todo code {
   background-color: #424242;
   padding: 1px 4px;
 }
-
-em {
+.todo em {
   font-style: italic;
 }
