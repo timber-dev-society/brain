@@ -19,10 +19,10 @@ class AddTodo extends Component {
 
   handleKeyDown = (event) => {
     switch (event.keyCode) {
-      case 13:
+      case 13: // enter
         if (event.ctrlKey) { return this.setState({ input: this.state.input + "\n" }) }
         this.props.addTodo(this.state.input)
-      case 27:
+      case 27: // esc
         this.setState({ input: '' })
     }
   }
