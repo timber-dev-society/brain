@@ -1,0 +1,19 @@
+
+.ui.input.add-todo {
+  width: 100%;
+  padding: 12px 0;
+}
+
+.ui.input.add-todo>input,
+.ui.input.add-todo>input:focus {
+  color: #fff;
+}
+
+code {
+  background-color: #424242;
+  padding: 1px 4px;
+}
+
+em {
+  font-style: italic;
+}

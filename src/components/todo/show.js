@@ -8,7 +8,7 @@ function renderMarkDown(text) {
 
 const Todo = ({ id, text }) => (
   <div style={{ paddingTop: '10px' }}>
-    <div style={{ display: 'inline-block', marginRight: '5px' }}><Checkbox /></div>
+    <div style={{ display: 'inline-block', marginRight: '5px', marginLeft: '-23px' }}><Checkbox /></div>
     <div style={{ display: 'inline-block', fontSize: '22px' }} for={'todo-'+id} dangerouslySetInnerHTML={renderMarkDown(text)} />
   </div>
 )

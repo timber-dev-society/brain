@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Input, Button } from 'semantic-ui-react'
-
+import { Input } from 'semantic-ui-react'
 
 import { addTodo } from './../../actions/todo-action'
 
 class AddTodo extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { input: '' }
-  }
+  state = { input: '' }
 
   updateInput = (value) => {
     this.setState({ input: value })
@@ -24,6 +20,7 @@ class AddTodo extends Component {
   handleKeyDown = (event) => {
     switch (event.keyCode) {
       case 13:
+        if (event.ctrlKey) { return this.setState({ input: this.state.input + "\n" }) }
         this.props.addTodo(this.state.input)
       case 27:
         this.setState({ input: '' })

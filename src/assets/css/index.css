@@ -18,16 +18,3 @@ code {
   background-color: black;
   color: white;
 }
-
-.ui.input.add-todo {
-  width: 100%;
-}
-
-.ui.input.add-todo>input,
-.ui.input.add-todo>input:focus {
-  color: #fff;
-}
-
-em {
-  font-weight: bold;
-}
