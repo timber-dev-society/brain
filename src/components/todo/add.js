@@ -21,21 +21,33 @@ class AddTodo extends Component {
     this.setState({ input: '' })
   }
 
+  handleKeyDown = (event) => {
+    switch (event.keyCode) {
+      case 13:
+        this.props.addTodo(this.state.input)
+      case 27:
+        this.setState({ input: '' })
+    }
+  }
+
+  componentDidMount(){
+    document.addEventListener("keydown", this.handleKeyDown, false);
+  }
+
+  componentWillUnmount(){
+    document.removeEventListener("keydown", this.handleKeyDown, false);
+  }
+
   render() {
     return (
-      <div style={{ margin: '5px auto', width: '80%' }}>
-        <div className="ui input" style={{ width: '80%' }}>
-          <input
-            style={{ borderRadius: '5px 0 0 5px' }}
-            onChange={e => this.updateInput(e.target.value)}
-            placeholder='What next'
-            value={this.state.input}
-          />
-        </div>
-        <Button style={{ width: '19.5%', margin: 0, borderRadius: '0 5px 5px 0', fontSize: '1.3rem' }} className="add-todo ui label label" onClick={this.handleAddTodo}>
-          {'//'} @Todo
-        </Button>
-      </div>
+      <Input
+        className="add-todo"
+        onChange={e => this.updateInput(e.target.value)}
+        placeholder='What next'
+        value={this.state.input}
+        transparent={true}
+        size="massive"
+      />
     )
   }
 }

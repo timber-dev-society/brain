@@ -6,10 +6,10 @@ import Todo from './../components/todo/show'
 
 const TodoPage = ({ todos }) => (
   <>
-    <AddTodo />
     <ul style={{ listStyle: 'none' }}>
       { todos.map(todo => <li key={todo.id}><Todo {...todo} /></li>) }
     </ul>
+    <AddTodo />
   </>
 )
 

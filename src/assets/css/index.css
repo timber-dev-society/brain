@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.app {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+}
+
+.ui.input.add-todo {
+  width: 100%;
+}
+
+.ui.input.add-todo>input,
+.ui.input.add-todo>input:focus {
+  color: #fff;
+}
+
+em {
+  font-weight: bold;
+}

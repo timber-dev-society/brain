@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 
 import store from './store'
 import './assets/css/reset.css'
+import './assets/css/index.css'
 import App from './containers/app'
 
 import * as sw from './service-worker'
@@ -12,7 +13,7 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('app')
 )
 
 // If you want your app to work offline and load faster, you can change

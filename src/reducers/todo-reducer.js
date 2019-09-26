@@ -39,8 +39,8 @@ const TodoReducer = (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
       return [
-        Todo(undefined, action),
-        ...state
+        ...state,
+        Todo(undefined, action)
       ]
     case TOGGLE_TODO:
       return state.map(todo => Todo(todo, action))

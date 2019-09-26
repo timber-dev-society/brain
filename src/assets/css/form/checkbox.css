@@ -2,8 +2,8 @@
   cursor: pointer;
   position: relative;
   margin: auto;
-  width: 30px;
-  height: 30px;
+  width: 18px;
+  height: 18px;
   -webkit-tap-highlight-color: transparent;
   transform: translate3d(0, 0, 0);
 }
@@ -42,10 +42,10 @@
   opacity: 1;
 }
 .check:hover svg {
-  stroke: #4285f4;
+  stroke: #fff;
 }
 #cbx:checked + .check svg {
-  stroke: #4285f4;
+  stroke: #fff;
 }
 #cbx:checked + .check svg path {
   stroke-dashoffset: 60;
