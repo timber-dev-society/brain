@@ -9,7 +9,8 @@ let id = 1
 const initialState = {
   id: 0,
   text: '',
-  complete: false
+  complete: false,
+  order: 0,
 }
 
 const Todo = (state = initialState, action) => {
@@ -18,13 +19,15 @@ const Todo = (state = initialState, action) => {
       return {
         id: id++,
         text: action.text,
-        complete: false
+        complete: false,
+        order: action.order,
       }
     case TOGGLE_TODO:
+      console.log(state.id === action.id, state.id, action.id, !state.complete);
       if (state.id !== action.id) { return state }
       return {
+        ...state,
         complete: !state.complete,
-        ...state
       }
     case REMOVE_TODO:
       if (state.id !== action.id) { return true }
@@ -34,10 +37,10 @@ const Todo = (state = initialState, action) => {
   }
 }
 
-
 const TodoReducer = (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
+      action.order = state.length
       return [
         ...state,
         Todo(undefined, action)

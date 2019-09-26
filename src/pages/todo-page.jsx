@@ -9,7 +9,7 @@ import './../assets/css/todo.css'
 const TodoPage = ({ todos }) => (
   <>
     <ul style={{ listStyle: 'none' }}>
-      { todos.map(todo => <li key={todo.id}><Todo {...todo} /></li>) }
+      { todos.sort((a, b) => (a.order < b.order ? -1 : 1)).map(todo => <li key={todo.id}><Todo {...todo} /></li>) }
     </ul>
     <AddTodo />
   </>

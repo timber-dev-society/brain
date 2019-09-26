@@ -45,7 +45,7 @@
   stroke: #fff;
 }
 .cbx:checked + .check svg {
-  stroke: #fff;
+  stroke: #9c9c9c;
 }
 .cbx:checked + .check svg path {
   stroke-dashoffset: 60;

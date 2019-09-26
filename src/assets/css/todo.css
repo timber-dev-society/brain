@@ -1,3 +1,10 @@
+.todo.complete {
+  color: #9c9c9c;
+}
+
+.todo.uncomplete {
+  color: #fff;
+}
 
 .ui.input.add-todo {
   width: 100%;
