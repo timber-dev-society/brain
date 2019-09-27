@@ -34,6 +34,7 @@ const Todo = (state = initialState, action) => {
       if (state.id !== action.id) { return true }
       return false
     case SWIPE_TODO_ORDER:
+      console.log(state.order, action.todo.order)
       return {
         ...state,
         order: action.todo.order,
@@ -57,8 +58,9 @@ const TodoReducer = (state = [], action) => {
       return state.filter(todo => Todo(todo, action))
     case SWIPE_TODO_ORDER:
       return state.map(todo => {
-        if (todo.id === action.todoFrom.id) { return Todo(todo, { action: SWIPE_TODO_ORDER, todo: action.todoTo })}
-        if (todo.id === action.todoTo.id) { return Todo(todo, { action: SWIPE_TODO_ORDER, todo: action.todoFrom })}
+        console.log(todo === action.from, todo === action.to)
+        if (todo === action.from) { return Todo(todo, { type: SWIPE_TODO_ORDER, todo: action.to }) }
+        if (todo === action.to) { return Todo(todo, { type: SWIPE_TODO_ORDER, todo: action.from }) }
         return todo
       })
     default:

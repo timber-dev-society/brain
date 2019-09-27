@@ -17,8 +17,8 @@ export const toggleTodo = (id) => ({
 })
 
 export const SWIPE_TODO_ORDER = '@@TODO/SWIPE_ORDER'
-export const swipeTodoOrder = (orderFrom, orderTo) => ({
+export const swipeTodoOrder = (from, to) => ({
   type: SWIPE_TODO_ORDER,
-  orderFrom,
-  orderTo
+  from,
+  to
 })
