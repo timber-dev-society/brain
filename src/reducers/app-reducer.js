@@ -1,34 +1,28 @@
-import { DRAG_START, DRAG_OVER, DRAG_END } from './../actions/app-action'
+import { DND_START, DND_END } from './../actions/app-action'
 
-const dragState = { start: {}, over: {} }
-const Drag = (state = dragState, action) => {
+const initialDnDState = { start: {} }
+const DnD = (state = initialDnDState, action) => {
   switch (action.type) {
-    case DRAG_START:
+    case DND_START:
       return {
         ...state,
         start: action.element
       }
-    case DRAG_OVER:
-      return {
-        ...state,
-        over: action.element
-      }
-    case DRAG_END :
-      return dragState
+    case DND_END :
+      return initialDnDState
     default:
       return state
   }
 }
 
-const initialState = { drag: dragState }
+const initialState = { DnD: initialDnDState }
 const AppReducer = (state = initialState, action) => {
   switch (action.type) {
-    case DRAG_START:
-    case DRAG_OVER:
-    case DRAG_END :
+    case DND_START:
+    case DND_END :
       return {
         ...state,
-        drag: Drag(state.drag, action)
+        DnD: DnD(state.drag, action)
       }
     default:
       return state

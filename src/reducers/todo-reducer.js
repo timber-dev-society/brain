@@ -57,10 +57,11 @@ const TodoReducer = (state = [], action) => {
     case REMOVE_TODO:
       return state.filter(todo => Todo(todo, action))
     case SWIPE_TODO_ORDER:
+      const todoFrom = state.find(todo => todo.id === action.from)
+      const todoTo = state.find(todo => todo.id === action.to)
       return state.map(todo => {
-        console.log(todo === action.from, todo === action.to)
-        if (todo === action.from) { return Todo(todo, { type: SWIPE_TODO_ORDER, todo: action.to }) }
-        if (todo === action.to) { return Todo(todo, { type: SWIPE_TODO_ORDER, todo: action.from }) }
+        if (todo === todoFrom) { return Todo(todo, { type: SWIPE_TODO_ORDER, todo: todoTo }) }
+        if (todo === todoTo) { return Todo(todo, { type: SWIPE_TODO_ORDER, todo: todoFrom }) }
         return todo
       })
     default:

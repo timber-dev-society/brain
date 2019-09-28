@@ -1,45 +1,32 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
 import Todo from './show'
 import { swipeTodoOrder } from './../../actions/todo-action'
-import { dragStart, dragOver, dragEnd } from './../../actions/app-action'
+import { dndStart, dndOver, dndEnd } from './../../actions/app-action'
 
-const TodoList = ({ todos, ...drag }) => {
+const TodoList = ({ todos, ...dnd }) => {
   const handleDragStart = (e, todo) => {
-    drag.dragStart(todo)
+    dnd.dndStart(todo)
     e.dataTransfer.effectAllowed = 'move'
     e.dataTransfer.setData('text/html', e.target.parentNode)
     e.dataTransfer.setDragImage(e.target.parentNode, 20, 20)
   }
 
-  const handleDragOver = todo => {
-    // if the item is dragged over itself, ignore
-    if (drag.start === todo) { return }
-    drag.dragOver(todo)
-  }
-  const handleDragEnter = todo => {
-    if (drag.start.id === todo.id) { return }
-    drag.swipeTodoOrder(drag.start, todo)
-    drag.dragStart({...drag.start, order: todo.order})
-  }
-
-  const handleDragEnd = () => {
-  //  drag.swipeTodoOrder(drag.start, drag.over)
-    drag.dragEnd()
+  const handleDragEnter = todoId => {
+    if (dnd.start === todoId) { return }
+    dnd.swipeTodoOrder(dnd.start, todoId)
   }
 
   return (
     <ul style={{ listStyle: 'none' }}>
-      { todos//.filter(todo => todo !== drag.start)
+      { todos//.filter(todo => todo !== dnd.start)
              .sort((a, b) => (a.order < b.order ? -1 : 1))
              .map(todo => (
-                <li key={todo.id}
-                    //onDragOver={() => handleDragOver(todo)}
-                    onDragEnter={() => handleDragEnter(todo)}>
+                <li key={todo.id} onDragEnter={() => handleDragEnter(todo.id)}>
                   <div draggable
-                       onDragStart={e => handleDragStart(e, todo)}
-                       onDragEnd={handleDragEnd}>
+                       onDragStart={e => handleDragStart(e, todo.id)}
+                       onDragEnd={dndEnd}>
                     <Todo {...todo} />
                   </div>
                 </li>
@@ -51,10 +38,10 @@ const TodoList = ({ todos, ...drag }) => {
 
 
 const mapStateToProps = state => {
-  return { todos: state.todo, ...state.app.drag }
+  return { todos: state.todo, ...state.app.DnD }
 }
 
 export default connect(
   mapStateToProps,
-  { swipeTodoOrder, dragStart, dragOver, dragEnd }
+  { swipeTodoOrder, dndStart, dndEnd }
 )(TodoList)

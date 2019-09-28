@@ -1,16 +1,10 @@
-export const DRAG_START = '@@APP/DRAG_START'
-export const dragStart = (element) => ({
-  type: DRAG_START,
+export const DND_START = '@@APP/DND_START'
+export const dndStart = (element) => ({
+  type: DND_START,
   element,
 })
 
-export const DRAG_OVER = '@@APP/DRAG_OVER'
-export const dragOver = (element) => ({
-  type: DRAG_OVER,
-  element,
-})
-
-export const DRAG_END = '@@APP/DRAG_END'
-export const dragEnd = (element) => ({
-  type: DRAG_END,
+export const DND_END = '@@APP/DND_END'
+export const dndEnd = (element) => ({
+  type: DND_END,
 })
