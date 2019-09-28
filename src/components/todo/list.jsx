@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import Todo from './show'
 import { swipeTodoOrder } from './../../actions/todo-action'
-import { dndStart, dndOver, dndEnd } from './../../actions/app-action'
+import { dndStart, dndEnd } from './../../actions/app-action'
 
 const TodoList = ({ todos, ...dnd }) => {
   const handleDragStart = (e, todo) => {
