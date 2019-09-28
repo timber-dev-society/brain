@@ -20,8 +20,7 @@ const TodoList = ({ todos, ...dnd }) => {
 
   return (
     <ul style={{ listStyle: 'none' }}>
-      { todos//.filter(todo => todo !== dnd.start)
-             .sort((a, b) => (a.order < b.order ? -1 : 1))
+      { todos.sort((a, b) => (a.order < b.order ? -1 : 1))
              .map(todo => (
                 <li key={todo.id} onDragEnter={() => handleDragEnter(todo.id)}>
                   <div draggable
