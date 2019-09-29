@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './../../assets/css/form/checkbox.css'
 import uniqueId from './../../lib/unique-id'
 

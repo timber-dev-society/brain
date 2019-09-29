@@ -2,7 +2,7 @@ import React from 'react'
 import marked from 'marked'
 import { connect } from 'react-redux'
 
-import Checkbox from './../checkbox'
+import Checkbox from './../form/checkbox'
 import { toggleTodo } from './../../actions/todo-action'
 // import { ReactComponent as DragImg } from "./../../assets/img/drag.svg";
 

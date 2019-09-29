@@ -8,3 +8,15 @@ export const DND_END = '@@APP/DND_END'
 export const dndEnd = (element) => ({
   type: DND_END,
 })
+
+
+export const EDIT_NOTE = '@@APP/NOTE_EDIT'
+export const editNote = (value) => ({
+  type: EDIT_NOTE,
+  value,
+})
+
+export const END_NOTE_EDITING =  '@@APP/END_NOTE_EDITING'
+export const endNoteEditing = () => ({
+  type: END_NOTE_EDITING,
+})
