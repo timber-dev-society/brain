@@ -1,7 +1,7 @@
-import { DND_START, DND_END, EDIT_NOTE, END_NOTE_EDITING } from './../actions/app-action'
+import { DND_START, DND_END, EDIT_NOTE, END_NOTE_EDITING, CHANGE_PAGE } from './../actions/app-action'
 import DnD, { initialDnDState } from './app/DnD'
 
-const initialState = { DnD: initialDnDState, note: null }
+const initialState = { DnD: initialDnDState, note: null, page: document.location.hash }
 const AppReducer = (state = initialState, action) => {
   switch (action.type) {
     case DND_START:
@@ -20,6 +20,11 @@ const AppReducer = (state = initialState, action) => {
         ...state,
         note: null
       }
+    case CHANGE_PAGE:
+    return {
+      ...state,
+      page: action.path
+    }
     default:
       return state
   }

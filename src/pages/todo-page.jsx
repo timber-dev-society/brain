@@ -14,5 +14,5 @@ const TodoPage = ({ todos }) => (
 )
 
 export default TodoPage
-export const url = '/todo'
-export const link = () => (<IoMdCheckboxOutline />)
+export const todoPath = '/todo'
+export const todoLink = () => (<IoMdCheckboxOutline />)

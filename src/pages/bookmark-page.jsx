@@ -7,5 +7,5 @@ const BookmarkPage = () => (
 )
 
 export default BookmarkPage
-export const url = '/bookmark'
-export const link = () => (<IoMdBookmark />)
+export const bookmarkPath = '/bookmark'
+export const bookmarkLink = () => (<IoMdBookmark />)

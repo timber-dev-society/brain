@@ -16,7 +16,16 @@ export const editNote = (value) => ({
   value,
 })
 
-export const END_NOTE_EDITING =  '@@APP/END_NOTE_EDITING'
+export const END_NOTE_EDITING = '@@APP/END_NOTE_EDITING'
 export const endNoteEditing = () => ({
   type: END_NOTE_EDITING,
 })
+
+export const CHANGE_PAGE = '@@APP/CHANGE_PAGE'
+export const changePage = (path) => {
+  document.location.hash = path
+  return {
+    type: CHANGE_PAGE,
+    path
+  }
+}

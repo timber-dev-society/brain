@@ -8,5 +8,5 @@ const NotePage = () => (
 )
 
 export default NotePage
-export const url = '/note'
-export const link = () => (<IoMdDocument />)
+export const notePath = '/note'
+export const noteLink = () => (<IoMdDocument />)
