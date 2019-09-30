@@ -24,7 +24,6 @@ const Todo = (state = initialState, action) => {
         order: action.order,
       }
     case TOGGLE_TODO:
-      console.log(state.id === action.id, state.id, action.id, !state.complete);
       if (state.id !== action.id) { return state }
       return {
         ...state,
@@ -34,7 +33,6 @@ const Todo = (state = initialState, action) => {
       if (state.id !== action.id) { return true }
       return false
     case SWIPE_TODO_ORDER:
-      console.log(state.order, action.todo.order)
       return {
         ...state,
         order: action.todo.order,

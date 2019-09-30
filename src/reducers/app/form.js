@@ -1,0 +1,4 @@
+
+initialState = [
+  { key: '', value: ''}
+]
