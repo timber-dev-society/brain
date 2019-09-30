@@ -1,34 +1,30 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Editor, EditorState, RichUtils } from 'draft-js';
+import {MegadraftEditor, editorStateFromRaw} from 'megadraft'
 import 'megadraft/dist/css/megadraft.css'
 
 import { editNote } from './../../actions/app-action'
+import './../../assets/css/editor.css'
 
 class NoteEditor extends React.Component {
   constructor(props) {
-      super(props);
-      this.state = {editorState: EditorState.createEmpty()};
-      this.onChange = (editorState) => this.setState({editorState});
-      this.handleKeyCommand = this.handleKeyCommand.bind(this);
-    }
-    handleKeyCommand(command, editorState) {
-      const newState = RichUtils.handleKeyCommand(editorState, command);
-      if (newState) {
-        this.onChange(newState);
-        return 'handled';
-      }
-      return 'not-handled';
-    }
-    render() {
-      return (
-        <Editor
+    super(props);
+    this.state = {editorState: editorStateFromRaw(null)};
+  }
+
+  onChange = (editorState) => {
+    this.setState({editorState});
+  }
+
+  render() {
+    return (
+      <div className="note-editor">
+        <MegadraftEditor
           editorState={this.state.editorState}
-          handleKeyCommand={this.handleKeyCommand}
-          onChange={this.onChange}
-        />
-      );
-    }
+          onChange={this.onChange}/>
+      </div>
+    )
+  }
 }
 
 export default NoteEditor
