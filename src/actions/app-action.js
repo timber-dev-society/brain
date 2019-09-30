@@ -26,6 +26,6 @@ export const changePage = (path) => {
   document.location.hash = path
   return {
     type: CHANGE_PAGE,
-    path
+    path: document.location.hash
   }
 }

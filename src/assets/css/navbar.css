@@ -1,0 +1,24 @@
+.navbar {
+  margin-bottom: 30px;
+}
+
+.navbar .navbar-link {
+  background-color: #3c3c3c;
+  border: none;
+  border-radius: 100%;
+  height: 40px;
+  margin: 5px;
+  width: 40px;
+}
+
+.navbar .navbar-link.active {
+  background-color: #8f3f94;
+}
+
+.navbar .navbar-link svg {
+  fill: #fff  !important;
+  width: 22px !important;
+  height: 22px !important;
+  margin: auto;
+  vertical-align: middle;
+}

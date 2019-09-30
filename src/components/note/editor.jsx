@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import {MegadraftEditor, editorStateFromRaw} from 'megadraft'
 import 'megadraft/dist/css/megadraft.css'
 
