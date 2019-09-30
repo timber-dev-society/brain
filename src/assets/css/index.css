@@ -15,6 +15,6 @@ code {
 .app {
   width: 100%;
   height: 100%;
-  background-color: black;
-  color: white;
+  background-color: var(--bck-color);
+  color: var(--txt-color);
 }

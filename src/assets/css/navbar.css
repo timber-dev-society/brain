@@ -12,11 +12,11 @@
 }
 
 .navbar .navbar-link.active {
-  background-color: #8f3f94;
+  background-color: var(--accent-color);
 }
 
 .navbar .navbar-link svg {
-  fill: #fff  !important;
+  fill: var(--txt-color)  !important;
   width: 22px !important;
   height: 22px !important;
   margin: auto;
