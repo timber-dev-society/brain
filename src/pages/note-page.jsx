@@ -1,4 +1,5 @@
 import React from 'react'
+import { IoMdDocument }  from 'react-icons/io';
 
 import Editor from './../components/note/editor'
 
