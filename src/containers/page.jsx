@@ -5,7 +5,7 @@ import pages from './../pages/'
 
 const Page = ({ path }) => (
   <>
-    { pages.filter(page => ('#' + page.path) === path).map(page => (<page.page />)) }
+    { pages.filter(page => ('#' + page.path) === path).map(page => (<page.page key={page.path} />)) }
   </>
 )
 
