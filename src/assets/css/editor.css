@@ -1,8 +1,0 @@
-.note-editor .megadraft-editor .DraftEditor-root,
-.note-editor .megadraft-editor .toolbar {
-  color: #fff;
-}
-
-.note-editor .megadraft-editor .paragraph + .paragraph {
-    margin-top: 20px;
-}

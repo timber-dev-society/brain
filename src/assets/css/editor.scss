@@ -1,0 +1,10 @@
+.note-editor .megadraft-editor {
+  .DraftEditor-root,
+  .toolbar {
+    color: #fff;
+  }
+
+  .paragraph + .paragraph {
+      margin-top: 20px;
+  }
+}

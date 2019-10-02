@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import pages from './../pages/'
 import { changePage } from './../actions/app-action'
-import './../assets/css/navbar.css'
+import './../assets/css/navbar.scss'
 
 const Navbar = ({ current, changePage }) => (
   <div className="navbar">
