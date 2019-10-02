@@ -4,7 +4,7 @@ import {MegadraftEditor, editorStateFromRaw} from 'megadraft'
 import 'megadraft/dist/css/megadraft.css'
 
 import { editNote } from './../../actions/app-action'
-import './../../assets/style/editor.scss'
+import './../../assets/style/editor.sass'
 
 class NoteEditor extends React.Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import React from 'react'
-import './../../assets/style/form/checkbox.scss'
+import './../../assets/style/form/checkbox.sass'
 import uniqueId from './../../lib/unique-id'
 
 const Checkbox = (props) => {

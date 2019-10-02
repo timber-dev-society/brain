@@ -1,0 +1,28 @@
+@import 'variables'
+
+.todo 
+  &.complete .drag,
+  &.complete 
+    color: $txtInactive
+
+  &.uncomplete .drag,
+  &.uncomplete 
+    color: $txtColor
+
+  .drag
+    height: 2rem
+
+  code
+    background-color: #424242
+    padding: 1px 4px
+
+  em 
+    font-style: italic
+
+.ui.input.add-todo
+  width: 100%
+  padding: 12px 0
+
+  &>input,
+  &>input:focus
+    color: $txtColor

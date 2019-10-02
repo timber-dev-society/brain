@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 
 import store from './store'
-import './assets/style/variables.scss'
+import './assets/style/variables.sass'
 import 'meyer-reset-scss/reset.scss'
-import './assets/style/index.scss'
+import './assets/style/index.sass'
 import App from './containers/app'
 
 import * as sw from './service-worker'
