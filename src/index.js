@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 
 import store from './store'
 import './assets/css/variables.scss'
-import './assets/css/reset.css'
+import 'meyer-reset-scss/reset.scss'
 import './assets/css/index.scss'
 import App from './containers/app'
 
