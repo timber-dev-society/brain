@@ -9,11 +9,14 @@ const Checkbox = (props) => {
     props.handleChange && props.handleChange()
   }
 
+  const checked = props.checked !== undefined ? props.checked : false
+
   return (
     <>
       <input type="checkbox" id={`cbx-${id}`} className="cbx"
         style={{ display: 'none' }}
         onChange={handleChange}
+        checked={checked}
       />
       <label htmlFor={`cbx-${id}`} className="check">
         <svg width="18px" height="18px" viewBox="0 0 18 18">

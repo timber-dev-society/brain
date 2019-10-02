@@ -12,7 +12,7 @@ function renderMarkDown(text) {
 const Todo = ({ id, text, complete, toggleTodo }) => (
   <div style={{ paddingTop: '10px' }} className={`todo ${complete ? 'complete' : 'uncomplete'}`}>
     <div style={{ display: 'inline-block', marginRight: '5px', marginLeft: '-23px' }}>
-      <Checkbox handleChange={() => toggleTodo(id)} />
+      <Checkbox handleChange={() => toggleTodo(id)} checked={complete} />
     </div>
     <div style={{ display: 'inline-block', fontSize: '22px' }} dangerouslySetInnerHTML={renderMarkDown(text)} />
   </div>
