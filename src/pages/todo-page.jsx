@@ -4,9 +4,9 @@ import { IoMdCheckboxOutline }  from 'react-icons/io';
 import AddTodo from './../components/todo/add'
 import TodoList from './../components/todo/list'
 
-import './../assets/css/todo.scss'
+import './../assets/style/todo.scss'
 
-const TodoPage = ({ todos }) => (
+const TodoPage = () => (
   <>
     <TodoList />
     <AddTodo />
