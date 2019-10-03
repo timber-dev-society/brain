@@ -1,9 +1,7 @@
 import React from 'react'
-// import { connect } from 'react-redux'
-import {MegadraftEditor, editorStateFromRaw} from 'megadraft'
+import { MegadraftEditor, editorStateFromRaw } from 'megadraft'
 import 'megadraft/dist/css/megadraft.css'
 
-import { editNote } from './../../actions/app-action'
 import './../../assets/style/editor.sass'
 
 class NoteEditor extends React.Component {
@@ -28,7 +26,3 @@ class NoteEditor extends React.Component {
 }
 
 export default NoteEditor
-/* connect(
-  state => ({ note: state.app.note}),
-  { editNote }
-)(Editor) */

@@ -4,11 +4,10 @@
     "browser"
   ],
   "loadEagerly": [
-    "path/to/your/js/**/*.js"
+    "src/**/*.js"
   ],
   "dontLoad": [
-    "node_modules/**",
-    "path/to/your/js/**/*.js"
+    "node_modules/**"
   ],
   "plugins": {
     "es_modules": {},
@@ -16,6 +15,7 @@
     "doc_comment": {
       "fullDocs": true,
       "strong": true
-    }
+    },
+    "jsx": {}
   }
 }
