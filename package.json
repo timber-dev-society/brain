@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "marked": "^0.7.0",
     "megadraft": "^0.6.7",
     "meyer-reset-scss": "^2.0.4",
@@ -14,6 +15,7 @@
     "react-redux": "^7.1.1",
     "react-scripts": "3.1.2",
     "redux": "^4.0.4",
+    "request": "^2.88.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.1"
   },
@@ -21,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:lambda": "netlify-lambda build src/lambda",
+    "serve:lambda": "netlify-lambda serve src/lambda"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "netlify-lambda": "^1.6.3",
     "redux-devtools": "^3.5.0",
     "stylus": "^0.54.7"
   }
