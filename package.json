@@ -8,14 +8,15 @@
     "email": "dious@pm.me"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/ndious/brain.git"
+    "type": "git",
+    "url": "https://github.com/ndious/brain.git"
   },
   "description": "NoiceBrain helper",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "marked": "^0.7.0",
     "megadraft": "^0.6.7",
+    "netlify-cli": "^2.15.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -27,11 +28,12 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.1"
   },
-  "bugs": { 
-    "url" : "https://github.com/ndious/brain/issues", 
-    "email" : "dious@pm.me"
+  "bugs": {
+    "url": "https://github.com/ndious/brain/issues",
+    "email": "dious@pm.me"
   },
   "scripts": {
+    "dev": "netlify dev",
     "start": "run-p start:**",
     "build": "run-p build:**",
     "test": "react-scripts test",
