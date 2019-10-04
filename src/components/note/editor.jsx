@@ -5,16 +5,16 @@ import 'megadraft/dist/css/megadraft.css'
 import './../../assets/style/editor.sass'
 
 class NoteEditor extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
-    this.state = {editorState: editorStateFromRaw(null)};
+    this.state = { editorState: editorStateFromRaw(null) };
   }
 
-  onChange = (editorState) => {
-    this.setState({editorState});
+  onChange (editorState) {
+    this.setState({ editorState });
   }
 
-  render() {
+  render () {
     return (
       <div className="note-editor">
         <MegadraftEditor

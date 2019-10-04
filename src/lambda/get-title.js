@@ -1,28 +1,32 @@
 import request from 'request'
-import cheerio from 'cheerio';
+import cheerio from 'cheerio'
 
 exports.handler = (event, context, callback) => {
-  if (event.queryStringParameters.url === undefined) {
+  if (typeof event.queryStringParameters.url === 'undefined') {
     callback(null, {
       statusCode: 500,
-      body: "invalid url"
+      body: 'invalid url',
     })
+
+    return
   }
 
-  request(event.queryStringParameters.url, function (error, response, body) {
+  request(event.queryStringParameters.url, (error, response, body) => {
     if (error) {
       callback(null, {
         statusCode: 500,
-        body: error
+        body: error,
       })
+
+      return
     }
 
-    const $ = cheerio.load(body);
-    const title = $('title').text();
+    const ch = cheerio.load(body)
+    const title = ch('title').text()
 
     callback(null, {
       statusCode: response.statusCode,
-      body: `{ "title": "${title}" }`
+      body: `{ "title": "${title}" }`,
     })
   })
 }
