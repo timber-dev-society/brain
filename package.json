@@ -1,14 +1,20 @@
 {
   "name": "brain",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.2.0",
+  "license": "ISC",
+  "author": {
+    "name": "Nicolas Dufreche",
+    "email": "dious@pm.me"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ndious/brain.git"
+  },
+  "description": "NoiceBrain helper",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "marked": "^0.7.0",
     "megadraft": "^0.6.7",
-    "meyer-reset-scss": "^2.0.4",
-    "node-sass": "^4.12.0",
-    "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -19,6 +25,10 @@
     "request": "^2.88.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.1"
+  },
+  "bugs": { 
+    "url" : "https://github.com/ndious/brain/issues", 
+    "email" : "dious@pm.me"
   },
   "scripts": {
     "start": "run-p start:**",
@@ -46,9 +56,10 @@
   },
   "devDependencies": {
     "eslint": "^6.5.1",
+    "meyer-reset-scss": "^2.0.4",
     "netlify-lambda": "^1.6.3",
     "npm-run-all": "^4.1.5",
-    "redux-devtools": "^3.5.0",
-    "stylus": "^0.54.7"
+    "node-sass": "^4.12.0",
+    "redux-devtools": "^3.5.0"
   }
 }
