@@ -10,7 +10,7 @@ class NoteEditor extends React.Component {
     this.state = { editorState: editorStateFromRaw(null) };
   }
 
-  onChange (editorState) {
+  onChange = (editorState) => {
     this.setState({ editorState });
   }
 
