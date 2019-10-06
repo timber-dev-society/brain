@@ -53,7 +53,7 @@ module.exports = {
         'consistent-this': 'error',
         'curly': 'error',
         'default-case': 'error',
-        'default-param-last': 'error',
+        'default-param-last': 'off',
         'dot-location': 'error',
         'dot-notation': 'error',
         'eol-last': 'error',
@@ -78,7 +78,8 @@ module.exports = {
         'indent': 'off',
         'indent-legacy': [
           'error',
-          2
+          2,
+          { 'SwitchCase': 1 }
         ],
         'init-declarations': 'error',
         'jsx-quotes': 'error',
@@ -102,23 +103,31 @@ module.exports = {
         'max-depth': 'error',
         'max-len': [
           'error',
-          { 'ignoreTrailingComments': true, 'ignoreStrings': true, 'ignoreTemplateLiterals': true }
+          { 
+            'ignoreTrailingComments': true,
+            'ignoreStrings': true,
+            'ignoreTemplateLiterals': true,
+            'code': 120
+          }
         ],
         'max-lines': 'error',
         'max-lines-per-function': 'error',
         'max-nested-callbacks': 'error',
         'max-params': 'error',
         'max-statements': 'error',
-        'max-statements-per-line': 'error',
+        'max-statements-per-line': [
+          'error',
+          { 'max': 2 }
+        ],
         'multiline-comment-style': [
             'error',
             'separate-lines'
         ],
         'multiline-ternary': 'error',
-        'new-cap': 'error',
+        'new-cap': 'off',
         'new-parens': 'error',
-        'newline-after-var': 'error',
-        'newline-before-return': 'error',
+        'newline-after-var': 'off',
+        'newline-before-return': 'off',
         'newline-per-chained-call': 'error',
         'no-alert': 'error',
         'no-array-constructor': 'error',
@@ -126,6 +135,7 @@ module.exports = {
         'no-bitwise': 'error',
         'no-buffer-constructor': 'error',
         'no-caller': 'error',
+        'no-case-declarations': 'off',
         'no-catch-shadow': 'error',
         'no-confusing-arrow': 'error',
         'no-console': 'error',
@@ -175,7 +185,7 @@ module.exports = {
         'no-octal-escape': 'error',
         'no-param-reassign': 'error',
         'no-path-concat': 'error',
-        'no-plusplus': 'error',
+        'no-plusplus': 'off',
         'no-process-env': 'error',
         'no-process-exit': 'error',
         'no-proto': 'error',
@@ -220,7 +230,7 @@ module.exports = {
             'error',
             'always'
         ],
-        'object-property-newline': 'error',
+        'object-property-newline': 'off',
         'object-shorthand': 'error',
         'one-var': [
           'error',
