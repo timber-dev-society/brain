@@ -83,4 +83,4 @@ const TodoReducer = (state = [], action) => {
   }
 }
 
-export default TodoReducer
+export default TodoCollection //TodoReducer
