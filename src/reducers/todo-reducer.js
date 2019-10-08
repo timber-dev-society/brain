@@ -4,6 +4,7 @@ import {
   TOGGLE_TODO,
   SWIPE_TODO_ORDER,
 } from './../actions/todo-action'
+import { INIT_STORES } from './../middleware/storage'
 
 let id = 1
 
@@ -62,6 +63,10 @@ const TodoCollection = (state = [], action) => {
         if (todo === todoTo) { return Todo(todo, { type: SWIPE_TODO_ORDER, todo: todoFrom }) }
         return todo
       })
+    case INIT_STORES:
+      const todoState = action.payload.filter(value => (value.store === 'todo'))
+      if (todoState.length === 0) { return state }
+      return [...todoState[0].data]
     default:
       return state
   }

@@ -1,12 +1,12 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, compose, applyMiddleware } from 'redux'
 import reducer from './reducers'
-
 import StorageMiddleware, { initStorage } from './middleware/storage'
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(StorageMiddleware)
+  composeEnhancer(applyMiddleware(StorageMiddleware)),
 )
 
 store.dispatch(initStorage())
