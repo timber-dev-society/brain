@@ -26,6 +26,19 @@ class Pomodoro extends Component {
     this.setState({ duration: moment.duration(this.state.timer) })
   }
 
+  handleKeyDown = (event) => {
+    if (event.keyCode === 32 && event.ctrlKey) {
+      this.toggleTimer()
+    }
+  }
+
+  toggleTimer = () => {
+    if (internals.intervalId === null) {
+      return this.start()
+    }
+    this.stop()
+  }
+
   stop = () => {
     clearInterval(internals.intervalId)
     internals.intervalId = null
@@ -48,14 +61,17 @@ class Pomodoro extends Component {
     }, internals.interval);
   }
 
+  componentDidMount(){
+    document.addEventListener("keydown", this.handleKeyDown, false);
+  }
+
+  componentWillUnmount(){
+    document.removeEventListener("keydown", this.handleKeyDown, false);
+  }
+
   render() {
     return (
-      <div onClick={() => {
-        if (internals.intervalId === null) {
-          return this.start()
-        }
-        this.stop()
-      }}
+      <div onClick={this.toggleTimer}
       style={{
         position: 'fixed',
         bottom: '20px',
