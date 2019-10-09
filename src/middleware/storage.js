@@ -21,6 +21,7 @@ const StorageMiddleware = (store) => (next) => (action) => {
                              .map(action => (action.store))
                              .map(store =>  ({ data: JSON.parse(ls.getItem(`@@store_${store}`)), store }))
                              .filter(value => (value.data !== null))
+
     store.dispatch(initStores(payload))
     return
   }
