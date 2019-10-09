@@ -14,7 +14,7 @@ class Pomodoro extends Component {
   state = {
     timer: internals.defaultValue,
     duration: moment.duration(internals.defaultValue),
-    current: { minutes: 25, seconds: 0 },
+    current: { minutes: 25, seconds: '00' },
     intervalId: null,
   }
 
@@ -41,7 +41,7 @@ class Pomodoro extends Component {
       }
 
       this.setState({
-        current: { minutes, seconds },
+        current: { minutes, seconds: seconds < 10 ? '0'+seconds : seconds },
         duration
       })
 
@@ -55,9 +55,20 @@ class Pomodoro extends Component {
           return this.start()
         }
         this.stop()
+      }}
+      style={{
+        position: 'fixed',
+        bottom: '20px',
+        right: '50px',
       }}>
-        <TimerIcon />
-        <span>
+        <TimerIcon style={{ display: 'inline-block', verticalAlign: 'middle' }} width="30px" height="30px" fill="white" />
+        <span style={{
+          fontWeight: 800,
+          fontSize: '25px',
+          display: 'inline-block',
+          verticalAlign: 'text-top',
+          marginLeft: '7px',
+        }}>
           {this.state.current.minutes} : {this.state.current.seconds}
         </span>
       </div>
