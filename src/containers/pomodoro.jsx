@@ -5,7 +5,7 @@ import { ReactComponent as TimerIcon } from './../assets/img/timer.svg'
 import './../assets/style/pomodoro.sass'
 
 const internals = {
-  defaultValue: { minutes: 25, seconds: 0 },
+  defaultValue: { minutes: 0, seconds: 2 },
   interval: 1000,
   intervalId: null,
 }
@@ -21,7 +21,7 @@ class Pomodoro extends Component {
   state = {
     timer: internals.defaultValue,
     duration: moment.duration(internals.defaultValue),
-    current: { minutes: '25', seconds: '00' },
+    current: { minutes: twoDigitsTransform(internals.defaultValue.minutes), seconds: twoDigitsTransform(internals.defaultValue.seconds) },
     intervalId: null,
     running: false,
     editing: false,
@@ -48,14 +48,30 @@ class Pomodoro extends Component {
     this.setState({ running: false })
   }
 
+  endTimer = () => {
+    if ('Notification' in window && Notification.permission === 'granted') {
+      new Notification('*Bip Bip Bip*', {
+        body: 'Pomodoro timer ends',
+        actions: [],
+        icon: 'https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fencrypted-tbn0.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQhHQ47YOebkReABkx2gxUWrJIMJ82QhwuenB75u2Zk26UnFVt-qxWVxas&sp=c3e31f214058a4e773fe59e3ca67b520&anticache=564773'
+      })
+    }
+    this.stopTimer()
+  }
+
   startTimer = () => {
+    if ('Notification' in window && Notification.permission === 'default') {
+      Notification.requestPermission()
+    }
+
     this.setState({ running: true })
     internals.intervalId = setInterval(() => {
       const millis = this.state.duration.asMilliseconds();
       const duration = moment.duration(millis - internals.interval, 'milliseconds')
 
       if (millis === 0) {
-        this.stopTimer()
+        this.endTimer()
+        return
       }
 
       this.setState({
