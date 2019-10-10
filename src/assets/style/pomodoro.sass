@@ -1,0 +1,39 @@
+@keyframes animatedBackground
+  0%
+    background-position: 0 0
+  100%
+    background-position: 100px 0
+
+.pomodoro-container
+  position: fixed
+  bottom: 20px
+  right: 50px
+
+  .text,
+  .icon
+    display: inline-block
+
+
+  .text
+    font-weight: 800
+    font-size: 25px
+    vertical-align: text-top
+    margin-left: 7px
+
+  .icon
+    vertical-align: middle
+    width: 30px
+    height: 40px
+
+  .pomodoro
+    background-image: url(/img/timer-graduation.png)
+    background-size: auto 5px
+    position: relative
+    top: 19px
+    background-repeat: repeat-x
+    width: 22px
+    height: 5px
+    margin-left: 4px
+
+    &.running
+      animation: animatedBackground 5s linear infinite

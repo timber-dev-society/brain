@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import moment from 'moment'
 
 import { ReactComponent as TimerIcon } from './../assets/img/timer.svg'
+import './../assets/style/pomodoro.sass'
 
 const internals = {
   defaultValue: { minutes: 25, seconds: 0 },
@@ -9,13 +10,21 @@ const internals = {
   intervalId: null,
 }
 
+const twoDigitsTransform = (value) => {
+  return value < 10
+       ? '0'.concat(value)
+       : String(value)
+}
+
 class Pomodoro extends Component {
 
   state = {
     timer: internals.defaultValue,
     duration: moment.duration(internals.defaultValue),
-    current: { minutes: 25, seconds: '00' },
+    current: { minutes: '25', seconds: '00' },
     intervalId: null,
+    running: false,
+    editing: false,
   }
 
   updateTimer = (values) => {
@@ -26,39 +35,47 @@ class Pomodoro extends Component {
     this.setState({ duration: moment.duration(this.state.timer) })
   }
 
-  handleKeyDown = (event) => {
-    if (event.keyCode === 32 && event.ctrlKey) {
-      this.toggleTimer()
-    }
-  }
-
   toggleTimer = () => {
     if (internals.intervalId === null) {
-      return this.start()
+      return this.startTimer()
     }
-    this.stop()
+    this.stopTimer()
   }
 
-  stop = () => {
+  stopTimer = () => {
     clearInterval(internals.intervalId)
     internals.intervalId = null
+    this.setState({ running: false })
   }
 
-  start = () => {
+  startTimer = () => {
+    this.setState({ running: true })
     internals.intervalId = setInterval(() => {
-      const duration = moment.duration(this.state.duration.asMilliseconds() - internals.interval, 'milliseconds')
-      const minutes = duration.minutes()
-      const seconds = duration.seconds()
-      if (minutes === 0 && seconds === 0) {
-        this.stop()
+      const millis = this.state.duration.asMilliseconds();
+      const duration = moment.duration(millis - internals.interval, 'milliseconds')
+
+      if (millis === 0) {
+        this.stopTimer()
       }
 
       this.setState({
-        current: { minutes, seconds: seconds < 10 ? '0'+seconds : seconds },
+        current: {
+          minutes: twoDigitsTransform(duration.minutes()),
+          seconds: twoDigitsTransform(duration.seconds()),
+        },
         duration
       })
 
     }, internals.interval);
+  }
+
+  handleKeyDown = (event) => {
+    if (event.keyCode === 32 && event.ctrlKey) {
+      this.toggleTimer()
+    }
+    if (this.state.editing && event.keyCode === 13) {
+      event.preventDefault();
+    }
   }
 
   componentDidMount(){
@@ -71,22 +88,16 @@ class Pomodoro extends Component {
 
   render() {
     return (
-      <div onClick={this.toggleTimer}
-      style={{
-        position: 'fixed',
-        bottom: '20px',
-        right: '50px',
-      }}>
-        <TimerIcon style={{ display: 'inline-block', verticalAlign: 'middle' }} width="30px" height="30px" fill="white" />
-        <span style={{
-          fontWeight: 800,
-          fontSize: '25px',
-          display: 'inline-block',
-          verticalAlign: 'text-top',
-          marginLeft: '7px',
-        }}>
-          {this.state.current.minutes} : {this.state.current.seconds}
-        </span>
+      <div className="pomodoro-container">
+        <div className="icon" onClick={() => { this.state.duration.asMilliseconds() ? this.toggleTimer() : this.resetTimer() }}>
+          <div className={`pomodoro${this.state.running ? ' running' : ''}`}></div>
+          <TimerIcon width="30px" height="30px" fill="white" />
+        </div>
+        <div className="text">
+          <span id="pomodoro-minutes" contentEditable={String(!this.state.running)} onFocus={()=>{this.setState({editing: true})}}>{this.state.current.minutes}</span>
+          :
+          <span id="pomodoro-seconds" contentEditable={String(!this.state.running)}>{this.state.current.seconds}</span>
+        </div>
       </div>
     )
   }
