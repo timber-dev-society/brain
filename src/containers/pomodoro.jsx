@@ -5,7 +5,7 @@ import { ReactComponent as TimerIcon } from './../assets/img/timer.svg'
 import './../assets/style/pomodoro.sass'
 
 const internals = {
-  defaultValue: { minutes: 0, seconds: 2 },
+  defaultValue: { minutes: 25, seconds: 0 },
   interval: 1000,
   intervalId: null,
 }
