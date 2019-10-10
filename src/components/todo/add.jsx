@@ -6,7 +6,7 @@ import { addTodo } from './../../actions/todo-action'
 
 class AddTodo extends Component {
 
-  state = { input: '' }
+  state = { input: '', editing: false }
 
   updateInput = (value) => {
     this.setState({ input: value })
@@ -18,6 +18,7 @@ class AddTodo extends Component {
   }
 
   handleKeyDown = (event) => {
+    if (!this.state.editing) { return }
     switch (event.keyCode) {
       case 13: // enter
         if (event.ctrlKey) { return this.setState({ input: this.state.input + "\n" }) }
@@ -40,6 +41,8 @@ class AddTodo extends Component {
       <Input
         className="add-todo"
         onChange={e => this.updateInput(e.target.value)}
+        onFocus={()=>{this.setState({editing: true})}}
+        onBlur={()=>{this.setState({editing: false})}}
         placeholder='What next'
         value={this.state.input}
         transparent={true}
