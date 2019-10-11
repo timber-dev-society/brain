@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Input } from 'semantic-ui-react'
+import { Escape, Enter } from 'keyboard-key'
 
 import { addTodo } from './../../actions/todo-action'
 
@@ -20,10 +21,10 @@ class AddTodo extends Component {
   handleKeyDown = (event) => {
     if (!this.state.editing) { return }
     switch (event.keyCode) {
-      case 13: // enter
+      case Enter: // enter
         if (event.ctrlKey) { return this.setState({ input: this.state.input + "\n" }) }
         this.props.addTodo(this.state.input)
-      case 27: // esc
+      case Escape: // esc
         this.setState({ input: '' })
     }
   }

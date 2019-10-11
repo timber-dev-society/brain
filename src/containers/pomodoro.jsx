@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Spacebar, Enter } from 'keyboard-key'
 import moment from 'moment'
 
 import { ReactComponent as TimerIcon } from './../assets/img/timer.svg'
@@ -86,10 +87,10 @@ class Pomodoro extends Component {
   }
 
   handleKeyDown = (event) => {
-    if (event.keyCode === 32 && event.ctrlKey) {
+    if (event.keyCode === Spacebar && event.ctrlKey) {
       this.toggleTimer()
     }
-    if (this.state.editing && event.keyCode === 13) {
+    if (this.state.editing && event.keyCode === Enter) {
       event.preventDefault();
     }
   }
