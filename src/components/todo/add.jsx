@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Input } from 'semantic-ui-react'
 import { Escape, Enter } from 'keyboard-key'
 
 import { addTodo } from './../../actions/todo-action'
@@ -39,7 +38,7 @@ class AddTodo extends Component {
 
   render() {
     return (
-      <Input
+      <input
         className="add-todo"
         onChange={e => this.updateInput(e.target.value)}
         onFocus={()=>{this.setState({editing: true})}}
