@@ -9,10 +9,9 @@ import './../assets/style/navbar.sass'
 const Navbar = ({ current, changePage }) => (
   <Nav className="navbrain" vertical>
     { pages.map((page) => (
-      <NavItem>
-        <NavLink className={`navbar-link${'#'+page.path === current ? ' active' : ''}`}
-                key={page.path}
-                onClick={() => changePage(page.path)}>
+      <NavItem key={page.path}>
+        <NavLink className={`navbrain-link${'#'+page.path === current ? ' active' : ''}`}
+                 onClick={() => changePage(page.path)}>
           <page.link />
         </NavLink>
       </NavItem>
