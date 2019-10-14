@@ -38,6 +38,11 @@ const Todo = (state = initialState, action) => {
         ...state,
         order: action.todo.order,
       }
+    case INIT_STORES:
+      return {
+        ...action.payload,
+        id: id++,
+      }
     default:
       return state
   }
@@ -66,7 +71,7 @@ const TodoCollection = (state = [], action) => {
     case INIT_STORES:
       const todoState = action.payload.filter(value => (value.store === 'todo'))
       if (todoState.length === 0) { return state }
-      return [...todoState[0].data]
+      return todoState[0].data.map(todo => Todo(null, { type: INIT_STORES, payload: todo }))
     default:
       return state
   }
