@@ -8,6 +8,14 @@ class AddTodo extends Component {
 
   state = { input: '', editing: false }
 
+  style = {
+    backgroundColor: 'transparent',
+    border: 'none',
+    fontSize: '21px',
+    padding: '2px 16px',
+    width: '100%'
+  }
+
   updateInput = (value) => {
     this.setState({ input: value })
   }
@@ -39,6 +47,7 @@ class AddTodo extends Component {
   render() {
     return (
       <input
+        style={this.style}
         className="add-todo"
         onChange={e => this.updateInput(e.target.value)}
         onFocus={()=>{this.setState({editing: true})}}

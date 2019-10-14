@@ -7,12 +7,12 @@ import Pomodoro from './pomodoro'
 
 
 const App = () => (
-  <Container style={{ backgroundColor: 'black', color: 'white', padding: '2% 10% 5%' }}>
+  <Container>
     <Row>
-      <Col xs="3">
+      <Col xs="3" sm="2" md="1">
         <Navbar />
       </Col>
-      <Col xs="9">
+      <Col xs="9" sm="10" md="11" style={{ backgroundColor: 'black', color: 'white', height: '96vh', borderRadius: '10px' }}>
         <Page />
       </Col>
     </Row>
