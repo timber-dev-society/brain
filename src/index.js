@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import { Container } from 'reactstrap'
 
 import store from './store'
 // import 'meyer-reset-scss/reset.scss'
@@ -9,14 +10,14 @@ import App from './containers/app'
 
 import * as sw from './service-worker'
 
+const root = document.getElementById('app')
 ReactDOM.render(
-  <div className="animated-background">
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </div>,
-  document.getElementById('app')
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  root
 )
+root.classList.add('animated-background')
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

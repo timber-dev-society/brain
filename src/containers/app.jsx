@@ -14,9 +14,9 @@ const App = () => (
       </Col>
       <Col xs="9" sm="10" md="11" style={{ backgroundColor: 'black', color: 'white', height: '96vh', borderRadius: '10px' }}>
         <Page />
+        <Pomodoro />
       </Col>
     </Row>
-    <Pomodoro />
   </Container>
 )
 
