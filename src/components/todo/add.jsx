@@ -54,7 +54,6 @@ class AddTodo extends Component {
         onBlur={()=>{this.setState({editing: false})}}
         placeholder='What next'
         value={this.state.input}
-        transparent={true}
         size="massive"
       />
     )

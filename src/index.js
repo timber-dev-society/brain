@@ -1,10 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { Container } from 'reactstrap'
 
 import store from './store'
-// import 'meyer-reset-scss/reset.scss'
 import './assets/style/index.sass'
 import App from './containers/app'
 

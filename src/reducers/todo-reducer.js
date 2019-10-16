@@ -31,8 +31,7 @@ const Todo = (state = initialState, action) => {
         complete: !state.complete,
       }
     case REMOVE_TODO:
-      if (state.id !== action.id) { return true }
-      return false
+      return state.id !== action.id
     case SWIPE_TODO_ORDER:
       return {
         ...state,
