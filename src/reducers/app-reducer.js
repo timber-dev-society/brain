@@ -22,10 +22,10 @@ const AppReducer = (state = initialState, action) => {
         note: null
       }
     case CHANGE_PAGE:
-    return {
-      ...state,
-      page: action.path
-    }
+      return {
+        ...state,
+        page: action.path
+      }
     default:
       return state
   }

@@ -23,7 +23,6 @@ export const swipeTodoOrder = (from, to) => ({
   to,
 })
 
-
 export const NEW_COLLECT = '@@TODO/NEW_COLLECT'
 export const newCollection = () => ({
   type: NEW_COLLECT,

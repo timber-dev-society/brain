@@ -7,7 +7,7 @@ setToLocalStorage('@@TODO', 'todo')
 
 const RootReducer = combineReducers({
   app: AppReducer,
-  todo: TodoReducer
+  todo: TodoReducer,
 })
 
 export default RootReducer

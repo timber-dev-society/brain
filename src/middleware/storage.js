@@ -19,7 +19,7 @@ const StorageMiddleware = (store) => (next) => (action) => {
   if (action.type === INIT_STORAGE) {
     const payload = internals.actionScopes
                              .map(action => (action.store))
-                             .map(store =>  ({ data: JSON.parse(ls.getItem(`@@store_${store}`)), store }))
+                             .map(store => ({ data: JSON.parse(ls.getItem(`@@store_${store}`)), store }))
                              .filter(value => (value.data !== null))
 
     store.dispatch(initStores(payload))
@@ -38,7 +38,6 @@ const StorageMiddleware = (store) => (next) => (action) => {
 
 export default StorageMiddleware
 export const setToLocalStorage = (scope, store) => {
-
   internals.actionScopes.push({
     scope,
     store,
