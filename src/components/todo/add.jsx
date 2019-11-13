@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, createRef } from 'react'
 import { connect } from 'react-redux'
 import { Escape, Enter, Spacebar } from 'keyboard-key'
 
@@ -7,8 +7,17 @@ import { addTodo } from './../../actions/todo-action'
 import './../../assets/style/todo/add.sass'
 
 class AddTodo extends Component {
+  constructor(props) {
+    super(props)
+    // create a ref to store the textInput DOM element
+    this.input = createRef()
+    this.focus = this.focus.bind(this)
+    this.state = { input: '', editing: false, visible: false }
+  }
 
-  state = { input: '', editing: false, visible: false }
+  focus() {
+    this.input.current.focus();
+  }
 
   updateInput = (value) => {
     this.setState({ input: value })
@@ -22,6 +31,7 @@ class AddTodo extends Component {
         return this.setState({ input: '' })
       case Spacebar:
         if (this.state.editing) { return }
+        this.focus()
         return this.setState({ input: '', visible: true, editing: true })
       case Escape:
         if (!this.state.editing) { return }
@@ -39,14 +49,20 @@ class AddTodo extends Component {
     document.removeEventListener("keydown", this.handleKeyDown, false);
   }
 
+  componentWillUpdate() {
+
+  }
+
   render() {
     return (
       <div className={`todo-add-container${this.state.visible ? ' visible' : ''}`}>
         <input
+          id="todo-add-input"
           className="todo-add-input"
           onChange={e => this.updateInput(e.target.value)}
           placeholder='What next'
           value={this.state.input}
+          ref={this.input}
         />
       </div>
     )
