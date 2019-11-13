@@ -1,10 +1,9 @@
 import React, { Component, createRef } from 'react'
-import { Escape, Enter, Spacebar } from 'keyboard-key'
+import { Escape, Enter, P } from 'keyboard-key'
 
 class CtrlP extends Component {
   constructor(props) {
     super(props)
-    // create a ref to store the textInput DOM element
     this.input = createRef()
     this.focus = this.focus.bind(this)
     this.state = { input: '', editing: false, visible: false }
@@ -25,10 +24,15 @@ class CtrlP extends Component {
         if (!this.state.editing) { return }
         this.props.addTodo(this.state.input)
         return this.setState({ input: '' })
-      case Spacebar:
-        if (this.state.editing) { return }
+      case P:
+        if (!event.ctrlKey) { return }
+        event.preventDefault()
         this.focus()
-        return this.setState({ input: '', visible: true, editing: true })
+        return this.setState({
+          input: '',
+          visible: !this.state.visible,
+          editing: !this.state.editing,
+        })
       case Escape:
         if (!this.state.editing) { return }
         return this.setState({ input: '', visible: false, editing: false })
