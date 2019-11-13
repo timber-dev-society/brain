@@ -1,7 +1,8 @@
 export const ADD_TODO = '@@TODO/ADD'
-export const addTodo = (text) => ({
+export const addTodo = (text, project) => ({
   type: ADD_TODO,
   text,
+  project,
 })
 
 export const REMOVE_TODO = '@@TODO/REMOVE'

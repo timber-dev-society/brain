@@ -13,8 +13,7 @@ const initialState = {
   text: '',
   complete: false,
   order: 0,
-  folder: 'inbox',
-  project: null,
+  project: 'inbox',
 }
 
 const Todo = (state = initialState, action) => {
@@ -25,6 +24,7 @@ const Todo = (state = initialState, action) => {
         text: action.text,
         complete: false,
         order: action.order,
+        project: action.project,
       }
     case TOGGLE_TODO:
       if (state.id !== action.id) { return state }
@@ -73,22 +73,6 @@ const TodoCollection = (state = [], action) => {
       const todoState = action.payload.filter(value => (value.store === 'todo'))
       if (todoState.length === 0) { return state }
       return todoState[0].data.map(todo => Todo(null, { type: INIT_STORES, payload: todo }))
-    default:
-      return state
-  }
-}
-
-const TodoReducer = (state = [], action) => {
-  switch (action.type) {
-    case ADD_TODO:
-    case TOGGLE_TODO:
-    case REMOVE_TODO:
-    case SWIPE_TODO_ORDER:
-      return state.map(collection => {
-        if (collection.id !== state.collection_id) { return state }
-        return { collection: TodoCollection(state.collection), ...state }
-      })
-
     default:
       return state
   }

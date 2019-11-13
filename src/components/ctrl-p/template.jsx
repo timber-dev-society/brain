@@ -6,7 +6,7 @@ class CtrlP extends Component {
     super(props)
     this.input = createRef()
     this.focus = this.focus.bind(this)
-    this.state = { input: '', editing: false, visible: false }
+    this.state = { input: '', project: 'inbox', editing: false, visible: false }
   }
 
   focus() {
@@ -14,7 +14,6 @@ class CtrlP extends Component {
   }
 
   updateInput = (value) => {
-    console.log(value)
     this.setState({ input: value })
   }
 
@@ -22,7 +21,8 @@ class CtrlP extends Component {
     switch (event.keyCode) {
       case Enter:
         if (!this.state.editing) { return }
-        this.props.addTodo(this.state.input)
+        // @TODO create submit action
+        this.props.addTodo(this.state.input, this.state.project)
         return this.setState({ input: '' })
       case P:
         if (!event.ctrlKey) { return }
@@ -59,6 +59,7 @@ class CtrlP extends Component {
           value={this.state.input}
           ref={this.input}
         />
+        <div className="project">@{this.state.project}</div>
       </div>
     )
   }

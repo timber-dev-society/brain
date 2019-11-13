@@ -1,8 +1,8 @@
-import { DND_START, DND_END, CHANGE_PAGE, TOGGLE_ADD_TODO } from './../actions/app-action'
+import { DND_START, DND_END, CHANGE_PAGE, CHANGE_PROJECT } from './../actions/app-action'
 import DnD, { initialDnDState } from './app/DnD'
 
 const initialPage = document.location.hash.length !== 0 ? document.location.hash : '#/todo'
-const initialState = { DnD: initialDnDState, page: initialPage, addTodoVisible: false }
+const initialState = { DnD: initialDnDState, page: initialPage, project: 'inbox' }
 const AppReducer = (state = initialState, action) => {
   switch (action.type) {
     case DND_START:
@@ -16,10 +16,10 @@ const AppReducer = (state = initialState, action) => {
         ...state,
         page: action.path
       }
-    case TOGGLE_ADD_TODO:
+    case CHANGE_PAGE:
       return {
         ...state,
-        addTodoVisible: !state.addTodoVisible
+        page: action.path
       }
     default:
       return state

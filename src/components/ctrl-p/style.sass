@@ -1,9 +1,14 @@
+$radius: 7px
+$paddingLat: 12vw
+$paddingTop: 10px
+$black: #676767
+
 .ctrl-p.container
   background-color: #ccc
   height: 60px
   left: 0
   min-width: 100vw
-  padding: 10px 12vw 0
+  padding: $paddingTop $paddingLat 0
   position: fixed
   right: 0
   top: -60px
@@ -13,14 +18,26 @@
 
   .input
     background-color: #eee
-    border: 1px solid #676767
-    border-radius: 7px
+    border: 1px solid $black
+    border-radius: $radius
     font-size: 21px
     padding: 2px 16px
     width: 100%
 
     &:focus
-      border-radius: 7px
-      border: 1px solid #676767
+      border-radius: $radius
+      border: 1px solid $black
       box-shadow: none
       outline: none
+
+  .project
+    position: absolute
+    right: $paddingLat
+    top: $paddingTop
+    text-align: center
+    width: 120px
+    background-color: $black
+    color: #fff
+    height: 37px
+    padding: 7px 0
+    border-radius: 0 $radius $radius 0
