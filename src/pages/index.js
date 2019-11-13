@@ -4,8 +4,8 @@ import BookmarkPage, { bookmarkPath, bookmarkLink } from './../pages/bookmark-pa
 
 const pages = [
   { page: TodoPage, path: todoPath, link: todoLink },
-  { page: NotePage, path: notePath, link: noteLink },
-  { page: BookmarkPage, path: bookmarkPath, link: bookmarkLink },
+//  { page: NotePage, path: notePath, link: noteLink },
+//  { page: BookmarkPage, path: bookmarkPath, link: bookmarkLink },
 ]
 
 export default pages

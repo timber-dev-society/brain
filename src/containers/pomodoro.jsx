@@ -108,7 +108,7 @@ class Pomodoro extends Component {
       <div className="pomodoro-container">
         <div className="icon" onClick={() => { this.state.duration.asMilliseconds() ? this.toggleTimer() : this.resetTimer() }}>
           <div className={`pomodoro${this.state.running ? ' running' : ''}`}></div>
-          <TimerIcon width="30px" height="30px" fill="white" />
+          <TimerIcon width="30px" height="30px" fill="black" />
         </div>
         <div className="text">
           <span id="pomodoro-minutes" contentEditable={String(!this.state.running)} onFocus={()=>{this.setState({editing: true})}}>{this.state.current.minutes}</span>

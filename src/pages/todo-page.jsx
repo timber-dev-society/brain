@@ -8,8 +8,8 @@ import './../assets/style/todo.sass'
 
 const TodoPage = () => (
   <>
-    <TodoList />
     <AddTodo />
+    <TodoList />
   </>
 )
 

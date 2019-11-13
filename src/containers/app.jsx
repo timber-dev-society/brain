@@ -9,10 +9,10 @@ import Pomodoro from './pomodoro'
 const App = () => (
   <Container>
     <Row>
-      <Col xs="3" sm="2" md="1">
+      { /*<Col xs="3" sm="2" md="1">
         <Navbar />
-      </Col>
-      <Col xs="9" sm="10" md="11" style={{ backgroundColor: 'black', color: 'white', height: '96vh', borderRadius: '10px' }}>
+      </Col>*/ }
+      <Col xs="12" md={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}  style={{ height: '96vh' }}>
         <Page />
         <Pomodoro />
       </Col>

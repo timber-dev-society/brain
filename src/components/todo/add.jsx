@@ -1,61 +1,54 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Escape, Enter } from 'keyboard-key'
+import { Escape, Enter, Spacebar } from 'keyboard-key'
 
 import { addTodo } from './../../actions/todo-action'
 
+import './../../assets/style/todo/add.sass'
+
 class AddTodo extends Component {
 
-  state = { input: '', editing: false }
-
-  style = {
-    backgroundColor: 'transparent',
-    border: 'none',
-    fontSize: '21px',
-    padding: '2px 16px',
-    width: '100%'
-  }
+  state = { input: '', editing: false, visible: false }
 
   updateInput = (value) => {
     this.setState({ input: value })
   }
 
-  handleAddTodo = () => {
-    this.props.addTodo(this.state.input)
-    this.setState({ input: '' })
-  }
-
   handleKeyDown = (event) => {
-    if (!this.state.editing) { return }
     switch (event.keyCode) {
-      case Enter: // enter
-        if (event.ctrlKey) { return this.setState({ input: this.state.input + "\n" }) }
+      case Enter:
+        if (!this.state.editing) { return }
         this.props.addTodo(this.state.input)
-      case Escape: // esc
-        this.setState({ input: '' })
+        return this.setState({ input: '' })
+      case Spacebar:
+        if (this.state.editing) { return }
+        return this.setState({ input: '', visible: true, editing: true })
+      case Escape:
+        if (!this.state.editing) { return }
+        return this.setState({ input: '', visible: false, editing: false })
+      default:
+        return
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     document.addEventListener("keydown", this.handleKeyDown, false);
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     document.removeEventListener("keydown", this.handleKeyDown, false);
   }
 
   render() {
     return (
-      <input
-        style={this.style}
-        className="add-todo"
-        onChange={e => this.updateInput(e.target.value)}
-        onFocus={()=>{this.setState({editing: true})}}
-        onBlur={()=>{this.setState({editing: false})}}
-        placeholder='What next'
-        value={this.state.input}
-        size="massive"
-      />
+      <div className={`todo-add-container${this.state.visible ? ' visible' : ''}`}>
+        <input
+          className="todo-add-input"
+          onChange={e => this.updateInput(e.target.value)}
+          placeholder='What next'
+          value={this.state.input}
+        />
+      </div>
     )
   }
 }

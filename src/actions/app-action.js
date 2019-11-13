@@ -9,18 +9,6 @@ export const dndEnd = (element) => ({
   type: DND_END,
 })
 
-
-export const EDIT_NOTE = '@@APP/NOTE_EDIT'
-export const editNote = (value) => ({
-  type: EDIT_NOTE,
-  value,
-})
-
-export const END_NOTE_EDITING = '@@APP/END_NOTE_EDITING'
-export const endNoteEditing = () => ({
-  type: END_NOTE_EDITING,
-})
-
 export const CHANGE_PAGE = '@@APP/CHANGE_PAGE'
 export const changePage = (path) => {
   document.location.hash = path
@@ -29,3 +17,8 @@ export const changePage = (path) => {
     path: document.location.hash,
   }
 }
+
+export const TOGGLE_ADD_TODO = '@@APP/TOGGLE_ADD_TODO_VISIBILITY'
+export const toggleAddTodo = () => ({
+  type: TOGGLE_ADD_TODO,
+})
