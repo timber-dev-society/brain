@@ -1,12 +1,7 @@
 import React, { Component, createRef } from 'react'
-import { connect } from 'react-redux'
 import { Escape, Enter, Spacebar } from 'keyboard-key'
 
-import { addTodo } from './../../actions/todo-action'
-
-import './../../assets/style/todo/add.sass'
-
-class AddTodo extends Component {
+class CtrlP extends Component {
   constructor(props) {
     super(props)
     // create a ref to store the textInput DOM element
@@ -20,6 +15,7 @@ class AddTodo extends Component {
   }
 
   updateInput = (value) => {
+    console.log(value)
     this.setState({ input: value })
   }
 
@@ -49,16 +45,11 @@ class AddTodo extends Component {
     document.removeEventListener("keydown", this.handleKeyDown, false);
   }
 
-  componentWillUpdate() {
-
-  }
-
   render() {
     return (
-      <div className={`todo-add-container${this.state.visible ? ' visible' : ''}`}>
+      <div className={`ctrl-p container${this.state.visible ? ' visible' : ''}`}>
         <input
-          id="todo-add-input"
-          className="todo-add-input"
+          className="input"
           onChange={e => this.updateInput(e.target.value)}
           placeholder='What next'
           value={this.state.input}
@@ -69,7 +60,4 @@ class AddTodo extends Component {
   }
 }
 
-export default connect(
-  null,
-  { addTodo }
-)(AddTodo)
+export default CtrlP

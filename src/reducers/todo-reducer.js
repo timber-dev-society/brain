@@ -13,6 +13,8 @@ const initialState = {
   text: '',
   complete: false,
   order: 0,
+  folder: 'inbox',
+  project: null,
 }
 
 const Todo = (state = initialState, action) => {

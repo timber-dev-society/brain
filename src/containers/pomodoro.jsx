@@ -111,9 +111,9 @@ class Pomodoro extends Component {
           <TimerIcon width="30px" height="30px" fill="black" />
         </div>
         <div className="text">
-          <span id="pomodoro-minutes" contentEditable={String(!this.state.running)} onFocus={()=>{this.setState({editing: true})}}>{this.state.current.minutes}</span>
+          <span id="pomodoro-minutes">{this.state.current.minutes}</span>
           :
-          <span id="pomodoro-seconds" contentEditable={String(!this.state.running)}>{this.state.current.seconds}</span>
+          <span id="pomodoro-seconds">{this.state.current.seconds}</span>
         </div>
       </div>
     )
