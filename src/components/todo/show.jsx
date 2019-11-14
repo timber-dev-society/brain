@@ -13,13 +13,13 @@ function renderMarkDown (text) {
 
 const Todo = ({ id, text, complete, toggleTodo, removeTodo }) => (
   <Row style={{ paddingTop: '10px' }} className={`todo ${complete ? 'complete' : 'uncomplete'}`}>
-    <Col xs='1' style={{ display: 'inline-block', marginRight: '5px', marginLeft: '-23px' }}>
+    <Col xs="1">
       <Checkbox handleChange={() => toggleTodo(id)} checked={complete} />
     </Col>
-    <Col xs="10" style={{ display: 'inline-block', fontSize: '22px' }} dangerouslySetInnerHTML={renderMarkDown(text)} />
-    <Col xs="1" className="actions">
+    <Col xs="10" className="content" dangerouslySetInnerHTML={renderMarkDown(text)} />
+    {/* <Col xs="1" className="actions">
       <Button onClick={() => { removeTodo(id) }} color="danger"><IoIosRemove /></Button>
-    </Col>
+    </Col> */}
   </Row>
 )
 
