@@ -11,10 +11,10 @@ const AppReducer = (state = initialState, action) => {
         ...state,
         DnD: DnD(state.drag, action)
       }
-    case CHANGE_PAGE:
+    case CHANGE_PROJECT:
       return {
         ...state,
-        page: action.path
+        project: action.project
       }
     case CHANGE_PAGE:
       return {

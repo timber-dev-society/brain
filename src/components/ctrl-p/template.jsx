@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react'
-import { handleKey } from './handle-keys'
+import { init, handleKey, handleChange } from './handle-keys'
 import cns from 'classnames'
 
 class CtrlP extends Component {
@@ -13,18 +13,13 @@ class CtrlP extends Component {
     this.input.current.focus();
   }
 
-  updateInput = (value) => {
-    this.setState({ input: value })
-  }
-
-  handleKeyDown = (event) => handleKey(event, this)
-
   componentDidMount() {
-    document.addEventListener("keydown", this.handleKeyDown, false);
+    init(this)
+    document.addEventListener("keydown", handleKey, false);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("keydown", this.handleKeyDown, false);
+    document.removeEventListener("keydown", handleKey, false);
   }
 
   render() {
@@ -32,7 +27,7 @@ class CtrlP extends Component {
       <div className={cns('ctrl-p container', {visible: this.state.visible})}>
         <input
           className="input"
-          onChange={e => this.updateInput(e.target.value)}
+          onChange={e => handleChange(e.target.value)}
           placeholder='What next'
           value={this.state.input}
           ref={this.input}

@@ -5,7 +5,7 @@ import Todo from './show'
 import { swipeTodoOrder } from './../../actions/todo-action'
 import { dndStart, dndEnd } from './../../actions/app-action'
 
-const TodoList = ({ todos, ...dnd }) => {
+const TodoList = ({ todos, project, ...dnd }) => {
   const handleDragStart = (e, todo) => {
     dnd.dndStart(todo)
     e.dataTransfer.effectAllowed = 'move'
@@ -20,7 +20,8 @@ const TodoList = ({ todos, ...dnd }) => {
 
   return (
     <ul style={{ listStyle: 'none' }}>
-      { todos.sort((a, b) => (a.order < b.order ? -1 : 1))
+      { todos.filter(todo => (todo.project === project))
+             .sort((a, b) => (a.order < b.order ? -1 : 1))
              .map(todo => (
                 <li key={todo.id} onDragEnter={() => handleDragEnter(todo.id)}>
                   <div draggable
@@ -37,7 +38,7 @@ const TodoList = ({ todos, ...dnd }) => {
 
 
 const mapStateToProps = state => {
-  return { todos: state.todo, ...state.app.DnD }
+  return { todos: state.todo, project: state.app.project, ...state.app.DnD }
 }
 
 export default connect(
