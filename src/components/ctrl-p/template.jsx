@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react'
-import { init, handleKey, handleChange } from './handle-keys'
+import { init, handleKey, handleChange } from './controller'
 import cns from 'classnames'
 
 class CtrlP extends Component {
