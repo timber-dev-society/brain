@@ -20,7 +20,7 @@ const TodoList = ({ todos, project, ...dnd }) => {
 
   return (
     <ul style={{ listStyle: 'none' }}>
-      { todos.filter(todo => (todo.project === project))
+      { todos.filter(todo => (project === 'inbox' || todo.project === project))
              .sort((a, b) => (a.order < b.order ? -1 : 1))
              .map(todo => (
                 <li key={todo.id} onDragEnter={() => handleDragEnter(todo.id)}>

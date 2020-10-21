@@ -16,7 +16,10 @@ const Todo = ({ id, text, complete, toggleTodo, removeTodo }) => (
     <Col xs="1">
       <Checkbox handleChange={() => toggleTodo(id)} checked={complete} />
     </Col>
-    <Col xs="10" className="content" dangerouslySetInnerHTML={renderMarkDown(text)} />
+    <Col xs="10">
+      <span className="content id text-secondary">#{id}</span>
+      <span className="content text" dangerouslySetInnerHTML={renderMarkDown(text)} />
+    </Col>
     {/* <Col xs="1" className="actions">
       <Button onClick={() => { removeTodo(id) }} color="danger"><IoIosRemove /></Button>
     </Col> */}

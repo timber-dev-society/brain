@@ -3,6 +3,7 @@ import { Escape, Enter, P, AtSign, PoundSign } from 'keyboard-key'
 export const CMD = Symbol('CMD')
 export const CHANGE_PROJECT = Symbol('CHANGE_PROJECT')
 export const ASSIGN_PROJECT = Symbol('ASSIGN_PROJECT')
+export const ASSIGN_TODO = Symbol('ASSIGN_TODO')
 export const ADD_TODO = Symbol('ADD_TODO')
 
 const internals = { component: undefined, action: ADD_TODO }
@@ -19,9 +20,11 @@ const ctrlP = () => {
 export const handleChange = (value) => {
   if (/^@\w*/.test(value)) {
     internals.action = CHANGE_PROJECT
-  } else if (/^:\w*/.test(value)) {
+  } else if (/@\w*/.test(value)) {
     internals.action = ASSIGN_PROJECT
-  } else if (/\s@\w*/.test(value)) {
+  } else if (/#\d*/.test(value)) {
+    internals.action = ASSIGN_PROJECT
+  } else if (/\s>\w*/.test(value)) {
     internals.action = CMD
   } else {
     internals.action = ADD_TODO
@@ -41,17 +44,16 @@ export const submit = () => {
       const project = internals.component.state.input.substr(1)
       internals.component.props.changeProject(project)
       internals.component.setState({ input: '', project  })
-      break
+      return
     case ASSIGN_PROJECT:
       console.log('Submit ASSIGN_PROJECT', internals.component.state.input)
-      break
+      return
     case CMD:
       console.log('Submit CMD', internals.component.state.input)
-      break
+      return
     default:
       return
   }
-  internals.action = ADD_TODO
 }
 
 export const handleKey = (event) => {
