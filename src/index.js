@@ -1,18 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
+// import { Provider } from 'react-redux'
 
-import store from './store'
+// import store from './store'
 import './assets/style/index.sass'
-import App from './containers/app'
+import App from './containers/app-hooked'
 
 import * as sw from './service-worker'
 
 const root = document.getElementById('app')
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <App />,
   root
 )
 

@@ -36,6 +36,5 @@ export const reducer = produce((draft, { type, payload }) => {
 
     default:
       throw new Error('Method not allowed')
-      break
   }
 })
