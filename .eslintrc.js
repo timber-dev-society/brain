@@ -2,7 +2,8 @@ module.exports = {
     'env': {
         'browser': true,
         'es6': true,
-        'node': true
+        'node': true,
+        'jest/globals': true,
     },
     'extends': [
         'eslint:recommended',
@@ -17,10 +18,10 @@ module.exports = {
         'ecmaFeatures': {
             'jsx': true
         },
-        'ecmaVersion': 2018,
+        'ecmaVersion': 2020,
         'sourceType': 'module'
     },
-    'plugins': ['react'],
+    'plugins': [ 'react', 'jest' ],
     'rules': {
         'accessor-pairs': 'error',
         'array-bracket-newline': 'error',
@@ -163,10 +164,7 @@ module.exports = {
         'no-lone-blocks': 'error',
         'no-lonely-if': 'error',
         'no-loop-func': 'error',
-        'no-magic-numbers': [
-          'error',
-          { 'ignore': [0, 1], 'ignoreArrayIndexes': true, 'enforceConst': true }
-        ],
+        'no-magic-numbers': 'off',
         'no-mixed-operators': 'error',
         'no-mixed-requires': 'error',
         'no-multi-assign': 'error',

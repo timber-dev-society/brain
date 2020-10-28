@@ -63,6 +63,7 @@
   },
   "devDependencies": {
     "eslint": "^6.8.0",
+    "eslint-plugin-jest": "^24.1.0",
     "meyer-reset-scss": "^2.0.4",
     "netlify-cli": "^2.65.6",
     "netlify-lambda": "^1.6.3",

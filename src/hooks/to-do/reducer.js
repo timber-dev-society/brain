@@ -1,39 +1,41 @@
-import produce from 'immer'
-import { ADD_TODO, TOGGLE_TODO, EDIT_TODO, DELETE_TODO } from "./actions"
+import produce, { enableMapSet } from 'immer'
+import { ADD_TODO, TOGGLE_TODO, EDIT_TODO, DELETE_TODO } from './actions'
 import { PRIORITY_LOW } from './priority'
 
-const initialState = {}
-const defaultToDo = { id: 0, title: '', content: '', projectId: null, parentId: null, priority: PRIORITY_LOW }
+enableMapSet()
+
+export const initialState = { ToDo: new Map([]) }
+export const defaultToDo = { id: 0, title: '', content: '', projectId: null, parentId: null, priority: PRIORITY_LOW, isCompleted: false }
 let lastInsertedId = 0
 
 export const reducer = produce((draft, { type, payload }) => {
-
   switch (type) {
-    case ADD_TODO:
+    case ADD_TODO: {
       const id = ++lastInsertedId
-      draft[id] = {
+      draft.ToDo.set(id, {
         ...defaultToDo,
         ...payload,
-      }
-      return
+        id,
+      })
+      break
+    }
 
-    case TOGGLE_TODO:
-      draft[payload].isCompleted = !draft[id].isCompleted
-      return
+    case TOGGLE_TODO: {
+      draft.ToDo.get(payload).isCompleted = !draft.ToDo.get(payload).isCompleted
+      break
+    }
 
-    case EDIT_TODO:
-      draft[payload.id] = {
-        ...draft[payload.id],
-        ...payload.values,
-      }
-      return
+    case EDIT_TODO: {
+      draft.ToDo.get(payload.todoId)[payload.key] = payload.value
+      break
+    }
 
     case DELETE_TODO:
-      delete draft[payload]
-      return
+      draft.ToDo.delete(payload)
+      break
 
     default:
-      return
-
+      throw new Error('Method not allowed')
+      break
   }
-})(initialState)
+})
