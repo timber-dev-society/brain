@@ -1,74 +1,36 @@
 {
-  "name": "brain",
-  "version": "0.2.0",
-  "license": "ISC",
-  "homepage": "https://brain.noice.host",
-  "author": {
-    "name": "Nicolas Dufreche",
-    "email": "dious@pm.me"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ndious/brain.git"
-  },
-  "description": "NoiceBrain helper",
-  "dependencies": {
-    "bootstrap": "^4.5.3",
-    "cheerio": "^1.0.0-rc.3",
-    "classnames": "^2.2.6",
-    "immer": "^7.0.14",
-    "ink": "^3.0.8",
-    "keyboard-key": "^1.1.0",
-    "marked": "^0.7.0",
-    "megadraft": "^0.6.16",
-    "moment": "^2.29.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-icons": "^3.11.0",
-    "react-redux": "^7.2.1",
-    "react-scripts": "^3.4.3",
-    "reactstrap": "^8.6.0",
-    "redux": "^4.0.5",
-    "request": "^2.88.2"
-  },
-  "bugs": {
-    "url": "https://github.com/ndious/brain/issues",
-    "email": "dious@pm.me"
-  },
-  "scripts": {
-    "dev": "netlify dev",
-    "start": "run-p start:**",
-    "build": "run-p build:**",
-    "test": "react-scripts test",
-    "build:react": "react-scripts build",
-    "build:lambda": "netlify-lambda build src/lambda",
-    "start:lambda": "netlify-lambda serve src/lambda",
-    "start:react": "react-scripts start"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-plugin-jest": "^24.1.0",
-    "meyer-reset-scss": "^2.0.4",
-    "netlify-cli": "^2.65.6",
-    "netlify-lambda": "^1.6.3",
-    "node-sass": "^4.14.1",
-    "npm-run-all": "^4.1.5",
-    "redux-devtools": "^3.7.0"
-  }
+	"name": "brain",
+	"version": "0.0.0",
+	"license": "MIT",
+	"bin": "cli.js",
+	"engines": {
+		"node": ">=10"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"cli.js",
+		"ui.js"
+	],
+	"dependencies": {},
+	"devDependencies": {},
+	"ava": {
+		"babel": true,
+		"require": [
+			"@babel/register"
+		]
+	},
+	"babel": {
+		"presets": [
+			"@babel/preset-env",
+			"@babel/preset-react"
+		]
+	},
+	"xo": {
+		"extends": "xo-react",
+		"rules": {
+			"react/prop-types": "off"
+		}
+	}
 }
