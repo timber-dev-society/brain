@@ -1,20 +1,22 @@
-import React, {useState, useEffect} from 'react';
-import {render, Text} from 'ink';
+#!/usr/bin/env node
 
-const Counter = () => {
-	const [counter, setCounter] = useState(0);
+import React from 'react'
+import importJsx from 'import-jsx'
+import { render } from 'ink'
+import meow from 'meow'
 
-	useEffect(() => {
-		const timer = setInterval(() => {
-			setCounter(previousCounter => previousCounter + 1);
-		}, 100);
+const ui = importJsx('./cli/ui');
 
-		return () => {
-			clearInterval(timer);
-		};
-	}, []);
+const cli = meow(`
+Usage
+	  $ brain
 
-	return <Text color="green">{counter} tests passed</Text>;
-};
+	Options
+		--name  Your name
 
-render(<Counter />);
+	Examples
+	  $ brain --name=Jane
+	  Hello, Jane
+`);
+
+render(React.createElement(ui, cli.flags));

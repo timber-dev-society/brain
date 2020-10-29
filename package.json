@@ -1,36 +1,63 @@
 {
-	"name": "brain",
-	"version": "0.0.0",
-	"license": "MIT",
-	"bin": "cli.js",
-	"engines": {
-		"node": ">=10"
-	},
-	"scripts": {
-		"test": "xo && ava"
-	},
-	"files": [
-		"cli.js",
-		"ui.js"
-	],
-	"dependencies": {},
-	"devDependencies": {},
-	"ava": {
-		"babel": true,
-		"require": [
-			"@babel/register"
-		]
-	},
-	"babel": {
-		"presets": [
-			"@babel/preset-env",
-			"@babel/preset-react"
-		]
-	},
-	"xo": {
-		"extends": "xo-react",
-		"rules": {
-			"react/prop-types": "off"
-		}
-	}
+  "name": "brain",
+  "version": "0.2.0",
+  "license": "ISC",
+  "homepage": "https://brain.noice.host",
+  "bin": {
+    "brain": "src/index-cli.js"
+  },
+  "author": {
+    "name": "Nicolas Dufreche",
+    "email": "dious@pm.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ndious/brain.git"
+  },
+  "type": "module",
+  "description": "NoiceBrain helper",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "immer": "^7.0.14",
+    "import-jsx": "^4.0.0",
+    "ink": "^3.0.8",
+    "keyboard-key": "^1.1.0",
+    "meow": "^7.1.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-icons": "^3.11.0",
+    "react-scripts": "^4.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/ndious/brain/issues",
+    "email": "dious@pm.me"
+  },
+  "scripts": {
+    "start": "run-p start:**",
+    "build": "run-p build:**",
+    "test": "react-scripts test",
+    "build:react": "react-scripts build",
+    "start:react": "react-scripts start"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-plugin-jest": "^24.1.0",
+    "npm-run-all": "^4.1.5"
+  }
 }
