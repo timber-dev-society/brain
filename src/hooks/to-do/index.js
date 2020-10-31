@@ -11,9 +11,9 @@ const useToDo = () => {
   const [ state, dispatch ] = useReducer(reducer, initialState)
   dispatcher = dispatch
 
-  return {
-    toDoList: () => [...state.ToDo.values()],
-  }
+  return [
+    () => [...state.ToDo.values()]
+  ]
 }
 
 export default useToDo

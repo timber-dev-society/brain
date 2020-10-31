@@ -4,7 +4,7 @@ const WHITE = '#ffffff'
 const BLACK = '#000000'
 
 const colors = {
-  // text colors
+  // text colours
   textLight: WHITE,
   textDark: BLACK,
   textPrimary: PURPLE,
@@ -14,7 +14,7 @@ const colors = {
   borderDark: BLACK,
   borderPrimary: PURPLE,
 
-  // background colors
+  // background colours
   bkgLight: WHITE,
   bkgDark: BLACK,
   bkgPrimary: PURPLE,
