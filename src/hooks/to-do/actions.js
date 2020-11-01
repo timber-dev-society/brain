@@ -1,24 +1,23 @@
-import { PRIORITY_LOW, PRIORITY_MEDIUM, PRIORITY_HIGHT } from './priority'
+import { 
+  PRIORITY_LOW, PRIORITY_MEDIUM, PRIORITY_HIGHT,
+  ADD_TODO, TOGGLE_TODO, EDIT_TODO, DELETE_TODO,
+} from './constants'
 
-export const ADD_TODO = Symbol('@@TODO/ADD')
 export const createToDo = (todo) => ({
   type: ADD_TODO,
   payload: todo,
 })
 
-export const TOGGLE_TODO = Symbol('@@TODO/TOGGLE')
 export const toggleToDo = (todoId) => ({
   type: TOGGLE_TODO,
   payload: todoId,
 })
 
-export const DELETE_TODO = Symbol('@@TODO/DELETE')
 export const removeToDo = (todoId) => ({
   type: DELETE_TODO,
   payload: todoId,
 })
 
-export const EDIT_TODO = Symbol('@@TODO/EDIT')
 export const setTitle = (todoId, content) => ({
   type: EDIT_TODO,
   payload: {
@@ -27,6 +26,7 @@ export const setTitle = (todoId, content) => ({
     value: content,
   },
 })
+
 export const setContent = (todoId, content) => ({
   type: EDIT_TODO,
   payload: {
@@ -35,6 +35,7 @@ export const setContent = (todoId, content) => ({
     value: content,
   },
 })
+
 export const setLowPriority = (todoId) => ({
   type: EDIT_TODO,
   payload: {
@@ -43,6 +44,7 @@ export const setLowPriority = (todoId) => ({
     value: PRIORITY_LOW,
   },
 })
+
 export const setMediumPriority = (todoId) => ({
   type: EDIT_TODO,
   payload: {
@@ -51,6 +53,7 @@ export const setMediumPriority = (todoId) => ({
     value: PRIORITY_MEDIUM,
   },
 })
+
 export const setHightPriority = (todoId) => ({
   type: EDIT_TODO,
   payload: {
@@ -59,6 +62,7 @@ export const setHightPriority = (todoId) => ({
     value: PRIORITY_HIGHT,
   },
 })
+
 export const setParentId = (todoId, parentId) => ({
   type: EDIT_TODO,
   payload: {
@@ -67,6 +71,7 @@ export const setParentId = (todoId, parentId) => ({
     value: parentId,
   },
 })
+
 export const setProjectId = (todoId, projectId) => ({
   type: EDIT_TODO,
   payload: {

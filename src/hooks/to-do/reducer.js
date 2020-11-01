@@ -1,6 +1,5 @@
 import produce, { enableMapSet } from 'immer'
-import { ADD_TODO, TOGGLE_TODO, EDIT_TODO, DELETE_TODO } from './actions'
-import { PRIORITY_LOW } from './priority'
+import { ADD_TODO, TOGGLE_TODO, EDIT_TODO, DELETE_TODO, PRIORITY_LOW } from './constants'
 
 enableMapSet()
 

@@ -1,6 +1,9 @@
-import { PRIORITY_LOW, PRIORITY_MEDIUM, PRIORITY_HIGHT } from './../priority'
+import { 
+  PRIORITY_LOW, PRIORITY_MEDIUM, PRIORITY_HIGHT,
+  ADD_TODO, TOGGLE_TODO, DELETE_TODO, EDIT_TODO,
+} from './../constants'
 import {
-    ADD_TODO, TOGGLE_TODO, DELETE_TODO, EDIT_TODO,
+    
     createToDo, toggleToDo, removeToDo,
     setTitle, setContent, setParentId, setProjectId,
     setLowPriority, setMediumPriority, setHightPriority,

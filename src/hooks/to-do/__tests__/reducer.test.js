@@ -1,5 +1,5 @@
 import { initialState, defaultToDo, reducer } from './../reducer'
-import { ADD_TODO, TOGGLE_TODO, EDIT_TODO, DELETE_TODO } from './../actions'
+import { ADD_TODO, TOGGLE_TODO, EDIT_TODO, DELETE_TODO } from './../constants'
 
 let currentId = 0
 
