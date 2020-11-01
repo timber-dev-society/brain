@@ -1,4 +1,4 @@
-const uniqueId = length => {
+const uniqueId = (length = 32) => {
   let result = ''
 
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
