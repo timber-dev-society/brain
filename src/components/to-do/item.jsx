@@ -25,16 +25,20 @@ const Todo = ({ id, title, isCompleted }) => {
   }
 
   return (
-    <Wrapper isCompleted={isCompleted}>
-      <Id onClick={ () => ToDo(id).toggle() }>#{id}</Id>
-      { isEditing || (<Title onClick={() => setIsEditing(true)}>{title}{ title !== value && (<DotDotDot />)}</Title>) }
+    <Wrapper data-testid="todo-wrapper" isCompleted={isCompleted}>
+      <Id data-testid="todo-id" onClick={ () => ToDo(id).toggle() }>#{id}</Id>
+      { isEditing || (<Title data-testid="todo-title" onClick={() => setIsEditing(true)}>{title}{ title !== value && (<DotDotDot />)}</Title>) }
       { isEditing && (<Input
-          style={{ width: `${inputSize}px` }}
-          type="text" 
-          value={value} 
-          onChange={(ev) => { setInputSize(getWordSize(ev.target.value)); setValue(ev.target.value) }} 
-          onKeyDown={(ev) => handleKeyDown(ev)} 
-          onBlur={() => setIsEditing(false) }
+        data-testid="todo-input"
+        style={{ width: `${inputSize}px` }}
+        type="text" 
+        value={value} 
+        onChange={(ev) => {
+          setInputSize(getWordSize(ev.target.value))
+          setValue(ev.target.value)
+        }} 
+        onKeyDown={(ev) => handleKeyDown(ev)} 
+        onBlur={() => setIsEditing(false) }
       />) }
     </Wrapper>
   )
